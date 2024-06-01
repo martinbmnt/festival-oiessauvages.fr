@@ -1,0 +1,9 @@
+dist
+node_modules
+.github
+.vscode
+*.md
+*.mjs
+pnpm-lock.yaml
+package.json
+tsconfig.json

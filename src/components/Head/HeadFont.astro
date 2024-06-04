@@ -1,0 +1,44 @@
+<link rel="preload" href="/assets/fonts/LeagueSpartan-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="/assets/fonts/LeagueSpartan-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<link rel="preload" href="/assets/fonts/LeagueSpartan-Black.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+<style is:inline>
+  @font-face {
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src:
+      local('League Spartan Regular'),
+      url('/assets/fonts/LeagueSpartan-Regular.woff2') format('woff2'),
+      url('/assets/fonts/LeagueSpartan-Regular.ttf') format('ttf');
+  }
+
+  @font-face {
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: 700;
+    font-stretch: 100%;
+    font-display: swap;
+    src:
+      local('League Spartan Bold'),
+      url('/assets/fonts/LeagueSpartan-Bold.woff2') format('woff2'),
+      url('/assets/fonts/LeagueSpartan-Bold.ttf') format('ttf');
+  }
+
+  @font-face {
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: 900;
+    font-stretch: 100%;
+    font-display: swap;
+    src:
+      local('League Spartan Black'),
+      url('/assets/fonts/LeagueSpartan-Black.woff2') format('woff2'),
+      url('/assets/fonts/LeagueSpartan-Black.ttf') format('ttf');
+  }
+
+  :root {
+    --font-family--league-spartan: 'League Spartan', system-ui, sans-serif;
+  }
+</style>

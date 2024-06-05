@@ -1,0 +1,84 @@
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.screen-reader-text {
+  @include visually-hidden;
+}
+
+:root {
+  --font-size--small: 1rem;
+  --font-size--base: 1.25rem;
+  --font-size--medium: 1.563rem;
+  --font-size--large: 1.953rem;
+  --font-size--x-large: 2.441rem;
+  --font-size--extra-large: 3.052rem;
+  --font-size--huge: 3.815rem;
+
+  @media (min-width: 48em) {
+    --font-size--small: 1rem;
+    --font-size--base: 1.333rem;
+    --font-size--medium: 1.777rem;
+    --font-size--large: 2.369rem;
+    --font-size--x-large: 3.157rem;
+    --font-size--extra-large: 4.209rem;
+    --font-size--huge: 5.611rem;
+  }
+}
+
+/*
+ * MARK: Font sizes
+ */
+
+h1 {
+  font-size: var(--font-size--huge);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--font-size--extra-large);
+}
+
+h3 {
+  font-size: var(--font-size--x-large);
+}
+
+h4 {
+  font-size: var(--font-size--large);
+}
+
+h5 {
+  font-size: var(--font-size--medium);
+}
+
+p {
+  font-size: var(--font-size--base);
+}
+
+small {
+  font-size: var(--font-size--small);
+}
+
+/*
+ * MARK: Links
+ */
+
+a {
+  text-decoration: 1px underline;
+
+  &[target='_blank'] {
+    cursor: alias;
+  }
+
+  &:hover {
+    text-decoration-thickness: 2px;
+  }
+}

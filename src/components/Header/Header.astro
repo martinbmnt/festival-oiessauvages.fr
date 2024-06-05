@@ -1,0 +1,10 @@
+---
+import Logo from '~components/Visual/Logo.astro';
+---
+
+<header class="header" aria-labelledby="site-name">
+  <a id="site-name" href={Astro.site?.pathname}>
+    <span class="screen-reader-text">Les oies sauvages</span>
+    <Logo logo="logo-linenn" color="flesh" />
+  </a>
+</header>

@@ -1,0 +1,12 @@
+---
+interface Props {
+  color: 'white' | 'flesh' | 'blue';
+  visual: 'gwazi-eskell' | 'gwazi' | 'poltred-wagenn' | 'wagenn';
+}
+
+const { color, visual } = Astro.props;
+---
+
+<svg focusable="false" aria-hidden="true" class={`visual visual--${visual} visual--color-${color}`}>
+  <use xlink:href={`/assets/images/visuals.svg#visual-${visual}`}></use>
+</svg>

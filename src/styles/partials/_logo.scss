@@ -1,0 +1,20 @@
+.logo {
+  display: inline-flex;
+  fill: currentColor;
+
+  &.logo--color-flesh {
+    fill: var(--color--flesh);
+  }
+
+  &.logo--color-blue {
+    fill: var(--color--blue);
+  }
+
+  &.logo--color-white {
+    fill: var(--color--white);
+  }
+
+  &.logo--logo-linenn {
+    aspect-ratio: 5 /1;
+  }
+}

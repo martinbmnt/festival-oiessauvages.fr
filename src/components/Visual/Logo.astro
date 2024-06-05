@@ -1,0 +1,12 @@
+---
+interface Props {
+  color: 'white' | 'flesh' | 'blue';
+  logo: 'logo' | 'logo-linenn';
+}
+
+const { color, logo } = Astro.props;
+---
+
+<svg focusable="false" aria-hidden="true" class={`logo logo--${logo} logo--color-${color}`}>
+  <use xlink:href={`/assets/images/logos.svg#${logo}`}></use>
+</svg>

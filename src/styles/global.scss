@@ -1,2 +1,46 @@
 @import 'the-new-css-reset/css/reset';
 
+$color-blue: #1841a2;
+$color-flesh: #fce2d5;
+$color-white: #fff;
+
+$screen-sm: 36em; // 576px
+$screen-md: 48em; // 768px
+$screen-lg: 62em; // 992px
+$screen-xl: 78em; // 1248px
+$screen-2xl: 96em; // 1536px
+
+:root {
+  --color--blue: #{$color-blue};
+  --color--flesh: #{$color-flesh};
+  --color--white: #{$color-white};
+}
+
+html {
+  font-family: var(--font-family--league-spartan);
+  background: var(--color--flesh);
+  color: var(--color--blue);
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+main {
+  margin-block-start: 2.6rem; // site header
+}
+
+@import 'partials/typography';
+
+@import 'partials/logo';
+
+@import 'partials/visuals';
+
+@import 'components/header';
+
+@import 'components/footer';
+
+@import 'pages/home';

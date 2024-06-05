@@ -1,0 +1,252 @@
+.page-home {
+  section {
+    padding-block-start: 4rem;
+  }
+
+  h2 {
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  /*
+   * MARK: Banner
+   */
+  .banner {
+    position: relative;
+    padding: 2rem;
+    display: flex;
+
+    p {
+      position: absolute;
+      text-align: center;
+      z-index: 1;
+
+      @media (min-width: $screen-lg) {
+        font-size: var(--font-size--large);
+      }
+
+      @media (min-width: $screen-2xl) {
+        font-size: var(--font-size--x-large);
+      }
+    }
+
+    .banner__dates {
+      color: var(--color--flesh);
+      bottom: 4.2rem;
+      width: calc(100vw - 4rem);
+      text-align: center;
+      background-color: var(--color--blue);
+
+      @media (min-width: $screen-lg) {
+        bottom: 5.2rem;
+      }
+
+      @media (min-width: $screen-2xl) {
+        bottom: 7.2rem;
+      }
+
+      time {
+        font-weight: 700;
+      }
+    }
+
+    .banner__location {
+      font-weight: 900;
+      bottom: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media (min-width: $screen-2xl) {
+        bottom: 3.2rem;
+      }
+
+      span {
+        @include visual-background('brush');
+      }
+    }
+
+    .banner__cover {
+      &.banner__cover--mobile {
+        @media (orientation: landscape) or (min-width: $screen-sm) {
+          display: none;
+        }
+      }
+
+      &.banner__cover--desktop {
+        @media (orientation: portrait) and (max-width: calc(#{$screen-sm} - 1px)) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  /*
+   * MARK: About
+   */
+  .about {
+    padding: 2rem;
+
+    p {
+      max-width: 80ch;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+
+      & + p {
+        margin-block-start: 1rem;
+      }
+
+      strong {
+        font-weight: 700;
+      }
+    }
+  }
+
+  /*
+   * MARK: Program
+   */
+  .program {
+    h2 {
+      margin-inline-start: 2rem;
+    }
+
+    .program__day {
+      position: relative;
+      display: grid;
+      padding: 0 2rem 2rem;
+      gap: 1rem;
+      background-color: var(--color--blue);
+      color: var(--color--flesh);
+
+      @media (min-width: 36em) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      &:first-of-type {
+        margin-block-start: 2rem;
+        @include visual-riblenn;
+      }
+
+      &:last-of-type {
+        padding-block-end: 4rem;
+        margin-block-end: 2rem;
+        @include visual-riblenn($mirror: true);
+      }
+    }
+
+    .program__day__heading {
+      top: 0;
+      font-weight: 900;
+      background-color: var(--color--blue);
+      padding-block-start: 2.8rem; // for the sticky effect
+      @include visual-riblenn($mirror: true);
+      position: sticky;
+
+      @media (min-width: 36em) {
+        grid-column: span 2;
+      }
+
+      time {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      span {
+        &:first-of-type {
+          line-height: 1;
+          color: var(--color--blue);
+          @include visual-background(brush);
+        }
+      }
+    }
+
+    .program__day__subheading {
+      margin-block-start: 0.5rem;
+      font-size: var(--font-size--medium);
+      text-wrap: balance;
+      text-align: center;
+
+      @media (min-width: 36em) {
+        grid-column: span 2;
+      }
+    }
+
+    .program__activity {
+      margin-block-start: 2rem;
+      display: grid;
+      gap: 0.75rem;
+
+      &.program__activity--fritez {
+        p strong {
+          font-size: var(--font-size--medium);
+          font-weight: 700;
+        }
+      }
+
+      &:nth-of-type(n + 2) {
+        padding-block-start: 2rem;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+
+    .program__activity__heading {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      text-wrap: balance;
+      font-size: var(--font-size--medium);
+
+      strong {
+        font-weight: 700;
+        font-size: var(--font-size--large);
+        line-height: 1;
+      }
+    }
+
+    .program__activity__time {
+      order: -1;
+      place-self: center;
+      gap: 0.25rem;
+      min-width: 8ch;
+      color: var(--color--blue);
+      font-weight: 700;
+      @include visual-background(brush);
+
+      time {
+        &:nth-of-type(n + 2) {
+          &:before {
+            content: '-';
+            padding-inline-end: 0.25rem;
+          }
+        }
+      }
+    }
+
+    .visual {
+      margin-block-start: 4rem;
+      max-width: 100%;
+      width: 10rem;
+      place-self: center;
+    }
+  }
+
+  /*
+   * MARK: Contact
+   */
+  .contact {
+    h2 {
+      margin-inline-end: 2rem;
+    }
+
+    div {
+      display: flex;
+      height: 50vh;
+    }
+  }
+}

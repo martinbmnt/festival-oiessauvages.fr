@@ -34,6 +34,10 @@ html {
   background: var(--color--flesh);
   color: var(--color--blue);
   scroll-padding-top: 2.6rem; // site header
+
+  @media (min-width: $screen-lg) {
+    scroll-padding-top: 3.5rem; // site header
+  }
 }
 
 body {
@@ -45,6 +49,10 @@ body {
 
 main {
   margin-block-start: 2.6rem; // site header
+
+  @media (min-width: $screen-lg) {
+    margin-block-start: 3.5rem; // site header
+  }
 }
 
 img {

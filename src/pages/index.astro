@@ -3,12 +3,14 @@ import PageLayout from '~layouts/PageLayout.astro';
 import Banner from '~components/Content/Banner.astro';
 import About from '~components/Content/About.astro';
 import Program from '~components/Content/Program.astro';
+import Button from '~components/Button/Button.astro';
+import BlockButton from '~components/Button/BlockButton.astro';
 ---
 
 <PageLayout title="Les Oies Sauvages | 5 au 7 juillet 2024" description="Festival breton de voyages & aventures 🪿 Envolée prévue le 5-6-7 juillet !">
   <Fragment slot="head">
-    <link rel="preload" href="/assets/images/banner-mobile.svg" as="image" media="(orientation: portrait) or (max-width: 36em)" />
-    <link rel="preload" href="/assets/images/banner-desktop.svg" as="image" media="(orientation: landscape) and (min-width: 36em)" />
+    <link rel="preload" href="/assets/images/banner-mobile.svg" as="image" media="(orientation: portrait) and (max-width: 36em)" />
+    <link rel="preload" href="/assets/images/banner-desktop.svg" as="image" media="(orientation: landscape) or (min-width: 36rem)" />
   </Fragment>
   <header class="banner">
     <Banner />
@@ -20,9 +22,23 @@ import Program from '~components/Content/Program.astro';
   <section id="programme" class="program">
     <h2>Le programme</h2>
     <Program />
+    <aside class="program__register">
+      <BlockButton url="https://www.helloasso.com/associations/un-autre-cycle/evenements/festival-les-oies-sauvages-2" label="Inscriptions sur le site d'Hello Asso" color="flesh">
+        Inscriptions via Hello Asso
+      </BlockButton>
+    </aside>
   </section>
   <section id="contact" class="contact">
     <h2>Contactez-nous</h2>
-    <div></div>
-  </section>
-</PageLayout>
+    <p>Vous pouvez nous écrire par mail : <a href="mailto:les.oies.sauvages@etik.com">les.oies.sauvages@etik.com</a></p>
+    <h3>Suivez l'envolée des Oies Sauvages sur les réseaux sociaux</h3>
+    <ul>
+      <li>
+        <Button url="https://www.facebook.com/profile.php?id=61558376362248" label="La page Facebook des Oies Sauvages">Facebook</Button>
+      </li>
+      <li>
+        <Button url="https://www.instagram.com/les_oies_sauvages_bzh/" label="Le compte Instagram des Oies Sauvages">Instagram</Button>
+      </li>
+    </ul>
+  </section></PageLayout
+>

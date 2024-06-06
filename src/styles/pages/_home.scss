@@ -1,6 +1,8 @@
 .page-home {
   section {
-    padding-block-start: 4rem;
+    padding-block-start: 1rem;
+    padding-block-end: 1rem;
+    margin-block-end: 2rem;
   }
 
   h2 {
@@ -17,6 +19,7 @@
     position: relative;
     padding: 2rem;
     display: flex;
+    justify-content: center;
 
     p {
       position: absolute;
@@ -35,7 +38,9 @@
     .banner__dates {
       color: var(--color--flesh);
       bottom: 4.2rem;
-      width: calc(100vw - 4rem);
+      width: fit-content;
+      padding-inline-start: 1rem;
+      padding-inline-end: 1rem;
       text-align: center;
       background-color: var(--color--blue);
 
@@ -106,37 +111,66 @@
     .program__day {
       position: relative;
       display: grid;
-      padding: 0 2rem 2rem;
+      align-items: start;
+      justify-content: center;
       gap: 1rem;
+      padding: 0 2rem 2rem;
       background-color: var(--color--blue);
       color: var(--color--flesh);
 
-      @media (min-width: 36em) {
+      @media (min-width: $screen-sm) {
         grid-template-columns: 1fr 1fr;
+        padding-block-start: 2rem;
+      }
+
+      @media (min-width: $screen-md) {
+        padding-block-start: 4rem;
+      }
+
+      @media (min-width: $screen-xl) {
+        grid-template-columns: 36rem 36rem;
+
+        &:not(:first-of-type) {
+          padding-block-start: 8rem;
+        }
       }
 
       &:first-of-type {
         margin-block-start: 2rem;
         @include visual-riblenn;
       }
+    }
 
-      &:last-of-type {
+    .program__register {
+      padding: 0 2rem 2rem;
+      background-color: var(--color--blue);
+      color: var(--color--flesh);
+      padding-block-start: 2rem;
+      padding-block-end: 2rem;
+      margin-block-end: 2rem;
+      @include visual-riblenn($mirror: true);
+
+      @media (min-width: $screen-lg) {
         padding-block-end: 4rem;
-        margin-block-end: 2rem;
-        @include visual-riblenn($mirror: true);
       }
     }
 
     .program__day__heading {
-      top: 0;
       font-weight: 900;
       background-color: var(--color--blue);
-      padding-block-start: 2.8rem; // for the sticky effect
-      @include visual-riblenn($mirror: true);
-      position: sticky;
 
-      @media (min-width: 36em) {
+      @media (orientation: portrait) and (min-height: 36em) {
+        top: 0;
+        padding-block-start: 2.8rem; // for the sticky effect
+        @include visual-riblenn($mirror: true);
+        position: sticky;
+      }
+
+      @media (min-width: $screen-sm) {
         grid-column: span 2;
+      }
+
+      @media (min-width: $screen-md) {
       }
 
       time {
@@ -161,8 +195,12 @@
       text-wrap: balance;
       text-align: center;
 
-      @media (min-width: 36em) {
+      @media (min-width: $screen-sm) {
         grid-column: span 2;
+      }
+
+      @media (min-width: $screen-md) {
+        font-size: var(--font-size--base);
       }
     }
 
@@ -170,16 +208,35 @@
       margin-block-start: 2rem;
       display: grid;
       gap: 0.75rem;
+      align-items: start;
 
       &.program__activity--fritez {
+        @media (min-width: $screen-md) {
+          grid-column-start: 2;
+
+          & + .visual {
+            grid-column-start: 1;
+            grid-row-start: 4;
+          }
+        }
+
         p strong {
           font-size: var(--font-size--medium);
           font-weight: 700;
         }
       }
 
+      &:first-of-type {
+        @media (min-width: $screen-md) {
+        }
+      }
+
       &:nth-of-type(n + 2) {
         padding-block-start: 2rem;
+
+        @media (min-width: $screen-sm) {
+          padding-block-start: unset;
+        }
       }
 
       p {
@@ -232,13 +289,24 @@
    * MARK: Contact
    */
   .contact {
-    h2 {
-      margin-inline-end: 2rem;
+    padding: 2rem;
+
+    h3 {
+      font-size: var(--font-size--large);
+      margin-block-start: 2rem;
+      margin-block-end: 1rem;
+      text-align: center;
     }
 
-    div {
+    p {
+      text-align: center;
+    }
+
+    ul {
       display: flex;
-      height: 50vh;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
   }
 }

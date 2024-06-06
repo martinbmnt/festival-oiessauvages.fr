@@ -11,15 +11,29 @@ $screen-xl: 78em; // 1248px
 $screen-2xl: 96em; // 1536px
 
 :root {
+  color-scheme: light;
+  accent-color: var(--color--blue);
+
   --color--blue: #{$color-blue};
   --color--flesh: #{$color-flesh};
   --color--white: #{$color-white};
+
+  --focus--outline-color: var(--color--blue);
+  --focus--outline-offset: 4px;
+}
+
+:focus-visible {
+  outline: 2px dashed var(--focus--outline-color);
+  outline-offset: var(--focus--outline-offset);
 }
 
 html {
+  font-size: 100%;
   font-family: var(--font-family--league-spartan);
+  scroll-behavior: smooth;
   background: var(--color--flesh);
   color: var(--color--blue);
+  scroll-padding-top: 2.6rem; // site header
 }
 
 body {

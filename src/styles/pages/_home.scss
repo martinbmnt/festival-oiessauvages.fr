@@ -68,21 +68,7 @@
     }
 
     .banner__cover {
-      &.banner__cover--mobile {
-        display: block !important;
-
-        @media (orientation: landscape) or (min-width: $screen-sm) {
-          display: none !important;
-        }
-      }
-
-      &.banner__cover--desktop {
-        display: none;
-
-        @media (orientation: landscape) and (min-width: #{$screen-sm}) {
-          display: block !important;
-        }
-      }
+      display: flex;
     }
   }
 

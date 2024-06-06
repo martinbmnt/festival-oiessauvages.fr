@@ -33,6 +33,11 @@ main {
   margin-block-start: 2.6rem; // site header
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 @import 'partials/typography';
 
 @import 'partials/logo';

@@ -6,6 +6,10 @@ import Program from '~components/Content/Program.astro';
 ---
 
 <PageLayout title="Welcome to Astro.">
+  <Fragment slot="head">
+    <link rel="preload" href="/assets/images/banner-mobile.svg" as="image" media="(orientation: portrait) or (max-width: 36em)" />
+    <link rel="preload" href="/assets/images/banner-desktop.svg" as="image" media="(orientation: landscape) and (min-width: 36em)" />
+  </Fragment>
   <header class="banner">
     <Banner />
   </header>

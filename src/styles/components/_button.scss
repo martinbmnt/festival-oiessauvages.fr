@@ -1,0 +1,33 @@
+.button {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 0.5rem;
+  border: 2px solid var(--color--blue);
+  text-decoration: none;
+  cursor: pointer !important;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+
+  &:hover {
+    background-color: var(--color--blue);
+    color: var(--color--flesh);
+  }
+
+  &.button--color-flesh {
+    background-color: var(--color--blue);
+    color: var(--color--flesh);
+    border-color: var(--color--flesh);
+
+    &:hover {
+      background-color: var(--color--flesh);
+      color: var(--color--blue);
+    }
+  }
+}
+
+.has-button--block {
+  text-align: center;
+}

@@ -1,0 +1,17 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  url: string;
+  label: string;
+  color?: 'blue' | 'flesh';
+}
+
+const { url, label, color = 'blue' } = Astro.props;
+---
+
+<p class="has-button--block">
+  <Button {url} {label} {color}>
+    <slot />
+  </Button>
+</p>

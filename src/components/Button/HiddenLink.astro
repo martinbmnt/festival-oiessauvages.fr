@@ -1,0 +1,81 @@
+---
+export interface Props {
+  value: string;
+  type: 'mail' | 'phone' | 'address';
+  showFullTitle?: true;
+}
+
+const content = Astro.props as Props;
+const encodedContent = Buffer.from(content.value).toString('base64');
+
+let title: string;
+
+switch (content.type) {
+  case 'mail':
+    title = "l'adresse mail";
+    break;
+  case 'phone':
+    title = 'le numéro de téléphone';
+    break;
+  case 'address':
+    title = "l'adresse";
+    break;
+  default:
+    title = 'le contenu';
+}
+---
+
+<button class="button" data-encoded={encodedContent} data-type={content.type}>
+  {
+    content.showFullTitle ? (
+      `Afficher ${title}`
+    ) : (
+      <>
+        Afficher <span class="screen-reader-text">{title}</span>
+      </>
+    )
+  }
+</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = Array.from(document.querySelectorAll('button[data-encoded]')) as HTMLButtonElement[];
+
+    buttons.forEach((button) =>
+      button.addEventListener('click', () => {
+        const type = button.dataset.type as string;
+        const decodedContent = atob(button.dataset.encoded ?? '');
+
+        let linkURL: string | null;
+        let element: HTMLElement;
+
+        switch (type) {
+          case 'mail':
+            linkURL = `mailto:${decodedContent}`;
+            element = document.createElement('a');
+            break;
+          case 'phone':
+            linkURL = `tel:+33${decodedContent.replace(/(\s|\.|^0)/g, '')}`;
+            element = document.createElement('a');
+            break;
+          case 'address':
+            linkURL = null;
+            element = document.createElement('address');
+            break;
+          default:
+            linkURL = null;
+            element = document.createElement('p');
+        }
+
+        if (element instanceof HTMLAnchorElement && linkURL) {
+          element.href = linkURL;
+        }
+
+        element.textContent = decodedContent;
+
+        button.replaceWith(element);
+        element.focus();
+      })
+    );
+  });
+</script>

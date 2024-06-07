@@ -1,0 +1,33 @@
+---
+import PageLayout from '~layouts/PageLayout.astro';
+import HiddenLink from '~components/Button/HiddenLink.astro';
+---
+
+<PageLayout title="Mentions légales | Les Oies Sauvages" description="Mentions légales du site internet du festivale Les Oies Sauvages">
+  <header>
+    <h1>Mentions légales</h1>
+    <p>Mis à jour le <time datetime="2024-06-07">7 juin 2024</time>.</p>
+  </header>
+  <section>
+    <h2>Éditeur</h2>
+    <p>Ce site est édité par le collectif Les Oies Sauvages, soutenu par Un Autre Cycle (Association).</p>
+    <ul>
+      <li>
+        <strong>Siège social</strong> :
+        <HiddenLink type="address" value="Association Un Autre Cycle - 748 Route du Doulieu - 59270 Meteren" />
+      </li>
+      <li><strong>Adresse mail</strong> : <HiddenLink type="mail" value="les.oies.sauvages@etik.com" /></li>
+      <li><strong>Directeur de publication</strong> (présidente de l'association) : Océane Le Pape</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Hébergement</h2>
+    <p>Ce site est hébergé chez Infomaniak.</p>
+    <ul>
+      <li><span>Siège social</span> : INFOMANIAK NETWORK SA &ndash; 26, Avenue de la Praille &ndash; 1227 Carouge / Genève &ndash; SUISSE</li>
+      <li><span>Tél.</span> : <span>+41 22 820 35 44</span> &ndash; <span>Fax</span> : <span>+41 22 301 67 69</span></li>
+      <li><span>Adresse mail</span> : contact@infomaniak.ch</li>
+      <li><span>Site internet</span> : <a href="https://infomaniak.com" rel="nofollow noreferrer noopener" target="_blank">www.infomaniak.com</a></li>
+    </ul>
+  </section>
+</PageLayout>

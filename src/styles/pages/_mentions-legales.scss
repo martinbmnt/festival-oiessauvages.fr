@@ -1,0 +1,23 @@
+.page-mentions-legales {
+  main {
+    max-width: 60rem;
+    padding: 2rem 1rem;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  section {
+    & + section {
+      margin-block-start: 2rem;
+    }
+
+    li {
+      font-size: var(--font-size--base);
+      margin-block-start: 1rem;
+    }
+  }
+}

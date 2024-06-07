@@ -9,7 +9,7 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-const pageSlug = Astro.url.pathname === '/' ? 'home' : Astro.url.pathname.slice(1).split('/').join('-');
+const pageSlug = Astro.url.pathname === '/' ? 'home' : Astro.url.pathname.slice(1).replace('.html', '').split('/').join('-');
 ---
 
 <!doctype html>

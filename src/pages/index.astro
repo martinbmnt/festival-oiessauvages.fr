@@ -9,18 +9,29 @@ import BlockButton from '~components/Button/BlockButton.astro';
 
 <PageLayout title="Les Oies Sauvages | 5 au 7 juillet 2024" description="Festival breton de voyages & aventures 🪿 Envolée prévue le 5-6-7 juillet !">
   <Fragment slot="head">
-    <link rel="preload" href="/assets/images/banner-mobile.svg" as="image" media="(orientation: portrait) and (max-width: 36em)" />
-    <link rel="preload" href="/assets/images/banner-desktop.svg" as="image" media="(orientation: landscape) or (min-width: 36rem)" />
+    <link rel="preload" href="/assets/images/visuals.svg" as="image" type="image/svg+xml" />
+    <link rel="preload" href="/assets/images/banner-mobile.svg" as="image" media="(orientation: portrait) and (max-width: 36em)" type="image/svg+xml" />
+    <link rel="preload" href="/assets/images/banner-desktop.svg" as="image" media="(orientation: landscape) or (min-width: 36rem)" type="image/svg+xml" />
   </Fragment>
   <header class="banner">
     <Banner />
   </header>
   <section id="evenement" class="about">
-    <h2>L'évènement</h2>
+    <h2>
+      <span class="screen-reader-text">L'évènement</span>
+      <svg focusable="false" aria-hidden="true">
+        <use xlink:href="/assets/images/logos.svg#title-evenement"></use>
+      </svg>
+    </h2>
     <About />
   </section>
   <section id="programme" class="program">
-    <h2>Le programme</h2>
+    <h2>
+      <span class="screen-reader-text">Le programme</span>
+      <svg focusable="false" aria-hidden="true">
+        <use xlink:href="/assets/images/logos.svg#title-programme"></use>
+      </svg>
+    </h2>
     <Program />
     <aside class="program__register">
       <BlockButton url="https://www.helloasso.com/associations/un-autre-cycle/evenements/festival-les-oies-sauvages-2" label="Inscriptions sur le site d'Hello Asso" color="flesh">
@@ -29,7 +40,12 @@ import BlockButton from '~components/Button/BlockButton.astro';
     </aside>
   </section>
   <section id="contact" class="contact">
-    <h2>Contactez-nous</h2>
+    <h2>
+      <span class="screen-reader-text">Contactez-nous</span>
+      <svg focusable="false" aria-hidden="true">
+        <use xlink:href="/assets/images/logos.svg#title-contactez-nous"></use>
+      </svg>
+    </h2>
     <p>Vous pouvez nous écrire par mail : <a href="mailto:les.oies.sauvages@etik.com">les.oies.sauvages@etik.com</a></p>
     <h3>Suivez l'envolée des Oies Sauvages sur les réseaux sociaux</h3>
     <ul>

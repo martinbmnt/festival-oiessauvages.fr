@@ -10,6 +10,13 @@
     margin-block-end: 1rem;
     font-weight: 700;
     text-align: center;
+
+    svg {
+      fill: currentColor;
+      aspect-ratio: 10 / 3;
+      max-width: 20rem;
+      width: 100%;
+    }
   }
 
   /*

@@ -33,7 +33,7 @@ Header set X-Content-Type-Options "nosniff"
 Header set X-XSS-Protection "1"
 Header set X-Robots-Tag "index, follow"
 Header set Referrer-Policy "strict-origin-when-cross-origin"
-Header set Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; manifest-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+Header set Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; manifest-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
 Header set Permissions-Policy "geolocation=(), microphone=(), interest-cohort=()"
 
 # END Security Headers

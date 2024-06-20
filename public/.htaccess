@@ -1,0 +1,107 @@
+ErrorDocument 404 /404.html
+
+AddDefaultCharset UTF-8
+
+# BEGIN Redirect
+
+RewriteEngine on
+
+# Force https
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{SERVER_NAME}/$1 [R,L] 
+
+# Redirect to disable www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Redirect to remove trailing .html
+RewriteCond %{THE_REQUEST} /([^.]+).html [NC]
+RewriteRule .+ /%1 [L,R=301]
+
+# Redirect to remove trailing slash
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+# Return content without .html
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule (.*)/?$ /$1.html [L]
+
+# END Redirect
+
+# BEGIN Security Headers
+
+Header set X-Content-Type-Options "nosniff"
+Header set X-XSS-Protection "1"
+Header set X-Robots-Tag "index, follow"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; manifest-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+Header set Permissions-Policy "geolocation=(), microphone=(), interest-cohort=()"
+
+# END Security Headers
+
+# BEGIN ContentType fixes
+
+<FilesMatch "\.avif$">
+  Header set Content-Type "image/avif"
+</FilesMatch>
+<FilesMatch "\.svg$">
+  Header set Content-Type "image/svg+xml; charset=utf-8"
+</FilesMatch>
+<FilesMatch "\.css$">
+  Header set Content-Type "text/css; charset=utf-8"
+</FilesMatch>
+<FilesMatch "\.webmanifest$">
+  Header set Content-Type "application/manifest+json; charset=utf-8"
+</FilesMatch>
+
+# END ContentType fixes
+
+# Configure ModPagespeed
+
+ModPagespeedCriticalImagesBeaconEnabled false
+ModPagespeedModifyCachingHeaders off
+ModPagespeedXHeaderValue "Configured for festival-oiessauvages.fr"
+
+# Disable directory indexes
+
+Options -Indexes
+
+# Compression
+
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/x-javascript application/x-httpd-php
+SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip
+Header append Vary User-Agent env=!dont-vary
+
+# Disable ETags
+
+Header unset ETag
+FileETag none
+
+# BEGIN Cache-Control Headers
+
+# Images and videos
+<FilesMatch "\.(ico|jpe?g|png|gif|webp|avif|svg|mp4)$">
+  Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+# Style, fonts and compressed assets
+<FilesMatch "\.(css|woff|woff2|gz)$">
+  Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+# JavaScript
+<FilesMatch "\.(js)$">
+  Header set Cache-Control "max-age=31536000, private"
+</FilesMatch>
+# HTML
+<FilesMatch "\.(html|htm)$">
+  Header set Cache-Control "no-cache"
+</FilesMatch>
+# WebManifest
+<FilesMatch "\.webmanifest$">
+  Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+# Disable caching for scripts and other dynamic files
+<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+  Header unset Cache-Control
+</FilesMatch>
+
+# END Cache-Control Header

@@ -6,28 +6,55 @@ import HiddenLink from '~components/Button/HiddenLink.astro';
 <PageLayout title="Mentions légales | Les Oies Sauvages" description="Mentions légales du site internet du festivale Les Oies Sauvages">
   <header>
     <h1>Mentions légales</h1>
-    <p>Mis à jour le <time datetime="2024-06-07">7 juin 2024</time>.</p>
+    <p>Mis à jour le <time datetime="2024-06-20">20 juin 2024</time>.</p>
   </header>
   <section>
     <h2>Éditeur</h2>
     <p>Ce site est édité par le collectif Les Oies Sauvages, soutenu par Un Autre Cycle (Association).</p>
-    <ul>
+    <ul aria-label="Informations sur l'éditeur">
       <li>
-        <strong>Siège social</strong> :
+        <span>Siège social</span> :
         <HiddenLink type="address" value="Association Un Autre Cycle - 748 Route du Doulieu - 59270 Meteren" />
       </li>
-      <li><strong>Adresse mail</strong> : <HiddenLink type="mail" value="les.oies.sauvages@etik.com" /></li>
-      <li><strong>Directeur de publication</strong> (présidente de l'association) : Océane Le Pape</li>
+      <li><span>Adresse mail</span> : <HiddenLink type="mail" value="les.oies.sauvages@etik.com" /></li>
+      <li><span>Directeur de publication</span> (présidente de l'association) : Océane Le Pape</li>
     </ul>
   </section>
   <section>
     <h2>Hébergement</h2>
     <p>Ce site est hébergé chez Infomaniak.</p>
-    <ul>
+    <ul aria-label="Informations sur l'hébergeur">
       <li><span>Siège social</span> : INFOMANIAK NETWORK SA &ndash; 26, Avenue de la Praille &ndash; 1227 Carouge / Genève &ndash; SUISSE</li>
       <li><span>Tél.</span> : <span>+41 22 820 35 44</span> &ndash; <span>Fax</span> : <span>+41 22 301 67 69</span></li>
       <li><span>Adresse mail</span> : contact@infomaniak.ch</li>
       <li><span>Site internet</span> : <a href="https://infomaniak.com" rel="nofollow noreferrer noopener" target="_blank">www.infomaniak.com</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Conception</h2>
+    <ul>
+      <li>
+        <span>Création graphique</span> :
+        <a
+          href="https://www.instagram.com/le.chat.est.un.chat/"
+          rel="nofollow noreferrer noopener"
+          target="_blank"
+          aria-label="Instagram de l'artiste Le chat est un chat (s'ouvre dans un nouvel onglet)"
+        >
+          @le.chat.est.un.chat
+        </a>
+      </li>
+      <li>
+        <span>Code source du site internet</span> :
+        <a
+          href="https://github.com/martinbmnt/festival-oiessauvages.fr"
+          rel="nofollow noreferrer noopener"
+          target="_blank"
+          aria-label="Code source du site internet sur GitHub (s'ouvre dans un nouvel onglet)"
+        >
+          github.com/martinbmnt/festival-oiessauvages.fr
+        </a>
+      </li>
     </ul>
   </section>
 </PageLayout>

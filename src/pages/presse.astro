@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import { PressType } from '~content/config';
+import HiddenLink from '~components/Button/HiddenLink.astro';
+import PageLayout from '~layouts/PageLayout.astro';
+
+const pressPosts = await getCollection('press');
+const pressArticles = pressPosts.filter((post) => post.data.type === PressType.article).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const pressEvents = pressPosts.filter((post) => post.data.type === PressType.event).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const lastUpdate = new Date(Math.max(...pressPosts.map((post) => new Date(post.data.date).getTime())));
+---
+
+<PageLayout title="Dans la presse | Les Oies Sauvages" description="Articles dans la presse et sur internet autour du festival Les Oies Sauvages">
+  <header>
+    <h1>Dans la presse</h1>
+    <p>
+      Dernière publication le
+      <time datetime={lastUpdate.toISOString()}>{lastUpdate.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</time>.
+    </p>
+    <p class="press__contact">
+      Vous êtes journaliste et souhaitez écrire sur le festival ?
+      <strong>
+        Écrivez-nous : <HiddenLink type="mail" value="les.oies.sauvages@etik.com" />
+      </strong>
+    </p>
+  </header>
+  <section class="press__news">
+    <h2 id="presse-articles">Articles<span class="screen-reader-text"> dans la presse et sur internet</span></h2>
+    {
+      pressArticles.length === 0 ? (
+        <p class="press__news--empty">Aucun article pour le moment.</p>
+      ) : (
+        <ul aria-labelledby="presse-articles">
+          {pressArticles.map(({ data }) => (
+            <li>
+              <article>
+                <h3>{data.title}</h3>
+                <p>
+                  <span class="screen-reader-text">Article sur le site de </span>
+                  {data.site},<span class="screen-reader-text">publié le</span>
+                  <time datetime={data.date.toISOString()}>{data.date.toLocaleDateString('fr-FR')}</time>
+                </p>
+                <p>
+                  <a
+                    aria-label={`Consulter l'article sur le site de ${data.site} (s'ouvre dans un nouvel onglet)`}
+                    href={data.link}
+                    target="_blank"
+                    rel="nofollow noreferrer noopener"
+                  >
+                    Consulter l'article
+                  </a>
+                </p>
+              </article>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+  <section class="press__events">
+    <h2 id="presse-evenements">Évènements<span class="screen-reader-text"> sur les sites spécialisés</span></h2>
+    <ul aria-labelledby="presse-evenements">
+      {
+        pressEvents.map(({ data }) => (
+          <li>
+            <article>
+              <h3>
+                <span class="screen-reader-text">Évènement sur le site de </span>
+                {data.site}
+              </h3>
+              <p>
+                <time datetime={data.date.toISOString()}>{data.date.toLocaleDateString('fr-FR')}</time>
+              </p>
+              <p>
+                <a
+                  aria-label={`Consulter l'évènement sur le site de ${data.site} (s'ouvre dans un nouvel onglet)`}
+                  href={data.link}
+                  target="_blank"
+                  rel="nofollow noreferrer noopener"
+                >
+                  Consulter l'évènement
+                </a>
+              </p>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</PageLayout>

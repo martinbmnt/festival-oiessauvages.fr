@@ -98,10 +98,6 @@
       & + p {
         margin-block-start: 1rem;
       }
-
-      strong {
-        font-weight: 700;
-      }
     }
   }
 
@@ -229,7 +225,6 @@
 
         p strong {
           font-size: var(--font-size--medium);
-          font-weight: 700;
         }
       }
 
@@ -259,7 +254,6 @@
       font-size: var(--font-size--medium);
 
       strong {
-        font-weight: 700;
         font-size: var(--font-size--large);
         line-height: 1;
       }

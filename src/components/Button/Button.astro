@@ -7,7 +7,7 @@ interface Props {
 
 const { url, label, color = 'blue' } = Astro.props;
 
-const target = url.startsWith('#') || url.startsWith(Astro.site?.hostname ?? '') ? '_self' : '_blank';
+const target = url.startsWith('#') || url.startsWith('/') || url.startsWith(Astro.site?.hostname ?? '') ? '_self' : '_blank';
 ---
 
 <a href={url} {target} class={`button button--color-${color}`} aria-label={label + (target === '_blank' ? " (s'ouvre dans un nouvel onglet)" : '')}>

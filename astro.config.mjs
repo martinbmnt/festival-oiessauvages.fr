@@ -1,10 +1,13 @@
 import { defineConfig } from 'astro/config';
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://festival-oiessauvages.fr',
   trailingSlash: 'never',
   build: {
-    format: 'file',
+    format: 'file'
   },
+  integrations: [sitemap()]
 });

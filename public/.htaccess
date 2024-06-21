@@ -4,6 +4,9 @@ AddDefaultCharset UTF-8
 
 # BEGIN Redirect
 
+Redirect 301 /sitemap https://festival-oiessauvages.fr/sitemap-index.xml
+Redirect 301 /sitemap.xml https://festival-oiessauvages.fr/sitemap-index.xml
+
 RewriteEngine on
 
 # Force https

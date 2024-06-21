@@ -38,6 +38,10 @@
  * MARK: Font sizes
  */
 
+body {
+  font-size: var(--font-size--base);
+}
+
 h1 {
   font-size: var(--font-size--huge);
   font-weight: 700;
@@ -57,10 +61,6 @@ h4 {
 
 h5 {
   font-size: var(--font-size--medium);
-}
-
-p {
-  font-size: var(--font-size--base);
 }
 
 small {

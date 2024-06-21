@@ -1,6 +1,7 @@
 footer {
   display: flex;
   flex-direction: column;
+  font-size: var(--font-size--small);
 
   nav {
     background-color: var(--color--blue);

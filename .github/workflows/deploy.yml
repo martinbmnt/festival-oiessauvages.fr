@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
 
@@ -17,8 +17,8 @@ jobs:
         uses: ./.github/actions/install
 
       - name: Build site
-        run: yarn build
-        
+        run: pnpm build
+
       - name: Deploy
         env:
           host: ${{ secrets.DEPLOY_HOST }}

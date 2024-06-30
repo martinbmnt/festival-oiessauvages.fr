@@ -9,6 +9,7 @@ interface Props {
 
 const { title, description } = Astro.props;
 
+const canonicalURL = `https://${Astro.site?.host}${Astro.url.pathname.replace(/\.html/, '')}`;
 const pageSlug = Astro.url.pathname === '/' ? 'home' : Astro.url.pathname.slice(1).replace('.html', '').split('/').join('-');
 ---
 
@@ -21,11 +22,14 @@ const pageSlug = Astro.url.pathname === '/' ? 'home' : Astro.url.pathname.slice(
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="mask-icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="preload" href="/assets/images/logos.svg" as="image" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#1841a2" />
+    <meta name="robots" content="follow, index, max-snippet:-1, max-image-preview:large" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="preload" href="/assets/images/logos.svg" as="image" type="image/svg+xml" />
     <slot name="head" />
     <HeadFont />
   </head>

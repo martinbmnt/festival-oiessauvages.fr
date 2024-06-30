@@ -1,0 +1,10 @@
+User-Agent: ChatGPT-User
+Disallow: /
+
+User-Agent: CCBot
+Disallow: /
+
+User-Agent: *
+Allow: /
+
+Sitemap: https://festival-oiessauvages.fr/sitemap-index.xml

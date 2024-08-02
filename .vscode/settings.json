@@ -1,5 +1,13 @@
 {
   "editor.formatOnSave": true,
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/src/content/press/**"
+      ],
+      "url": "./.astro/collections/press.schema.json"
+    }
+  ],
   "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
